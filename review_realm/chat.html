@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Form</title>
+</head>
+<body>
+
+    <h1>Write a Review</h1>
+
+    <form id="reviewForm">
+        <label for="review">Your Review:</label>
+        <textarea id="review" name="review" rows="50" cols="100"></textarea>
+
+        <button type="button" onclick="submitReview()">Submit Review</button>
+    </form>
+
+    <div id="submittedReviews">
+        <!-- Display submitted reviews here -->
+    </div>
+
+    <script>
+    // script.js
+
+function submitReview() {
+    // Get the review text from the textarea
+    var reviewText = document.getElementById("review").value;
+
+    // Check if the review is not empty
+    if (reviewText.trim() !== "") {
+        // Create a new div element to display the review
+        var reviewDiv = document.createElement("div");
+        reviewDiv.textContent = reviewText;
+
+        // Append the review div to the container
+        document.getElementById("submittedReviews").appendChild(reviewDiv);
+
+        // Clear the textarea after submission
+        document.getElementById("review").value = "";
+    } else {
+        alert("Please enter a review before submitting.");
+    }
+}
+</script>
+
+</body>
+</html>
